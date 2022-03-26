@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Scope</title>
+    </head>
+    <body>
+        <a href="/ejercicios/">Go back</a>
+        <p><em>Abre la consola</em></p>
+
+        <script>
+            //Clousure
+            // printColor
+
+            //IIFE
+            (function () {
+                let color = 'red';
+                let printColor = function () {
+                    console.log(color);
+                }
+                printColor();
+            })();
+
+            // Funciones que retornan funciones
+            /*
+            function makeColorPrinter(color) {
+                let colorMessage = `The color is ${color}`;
+                return function () {
+                    console.log(colorMessage);
+                }
+            }
+
+            let greenColorPrinter = makeColorPrinter('green');
+            console.log(greenColorPrinter());
+            */
+
+            // variables "privadas"
+            /*
+            const counter = {
+                count: 3,
+            }
+            */
+
+            function makeCounter(n){
+                let count = n;
+                return {
+                    increment: function () {
+                        count++;
+                    },
+                    decrement: function () {
+                        count--;
+                    },
+                    get: function () {
+                        return count;
+                    }
+                }
+
+            }
+            let counter = makeCounter(7);
+            console.log(counter.get());
+            counter.increment();
+            console.log('The count is: ' + counter.get());
+            counter.decrement();
+            counter.decrement();
+            counter.decrement();
+            counter.decrement();
+            console.log('The count is: ' + counter.get());
+            console.log('The count is: ' + counter.get());
+            counter.count=0;
+            console.log('The count is: ' + counter.get());
+
+        </script>
+    </body>
+</html>
