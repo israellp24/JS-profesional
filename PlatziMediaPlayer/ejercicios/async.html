@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This</title>
+</head>
+
+<body>
+    <script>
+        const url_ = 'https://flexinet.fleximatic.com.mx/APIS/AppFleximatic/categorias.json';
+
+        async function getCategorias() {
+            let response = await fetch(url_)
+            let json = await response.json()
+            return json;
+        }
+
+        //Forma 1
+        const test = () => {
+            getCategorias()
+                .then(data => {
+
+                    const categorias = JSON.stringify(data);
+
+                    console.log(categorias)
+
+                })
+                .catch(reason => console.log(reason.message))
+        }
+
+        //Forma 2
+        const test2 = async () => {
+            try {
+                const dato = await getCategorias();
+                const categorias = JSON.stringify(dato);
+                console.log(categorias)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+
+    </script>
+</body>
+
+</html>
