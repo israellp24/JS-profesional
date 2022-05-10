@@ -1,13 +1,15 @@
-import MediaPlayer from "./MediaPlayer";
-import AutoPlay from "./plugins/AutoPlay";
-import AutoPause from "./plugins/AutoPause";
+import MediaPlayer from "@israellp24/platzimediaplayer";
+import AutoPlay from "@israellp24/platzimediaplayer/src/plugins/AutoPlay";
+import AutoPause from "@israellp24/platzimediaplayer/src/plugins/AutoPause";
+import Ads from "@israellp24/platzimediaplayer/src/plugins/Ads";
 
 const video = document.querySelector("video");
 const player = new MediaPlayer({ 
     el: video,
     plugins: [
         new AutoPlay(),
-        new AutoPause()
+        new AutoPause(),
+        new Ads()
     ] 
 });
 
